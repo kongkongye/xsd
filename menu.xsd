@@ -122,6 +122,11 @@
                         <xs:documentation>变量名(默认为空,空也是正常的值)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="default" type="SubDefaultType">
+                    <xs:annotation>
+                        <xs:documentation>默认是否打开</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -130,6 +135,13 @@
     <xs:simpleType name="ListSizeType">
         <xs:restriction base="xs:integer">
             <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="SubDefaultType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="open"/>
+            <xs:enumeration value="closed"/>
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
