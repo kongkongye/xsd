@@ -127,6 +127,11 @@
                         <xs:documentation>默认是否打开</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="group">
+                    <xs:annotation>
+                        <xs:documentation>所属的子菜单组(默认无组)</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
