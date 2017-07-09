@@ -44,11 +44,17 @@
                     <xs:documentation>按钮内容(可使用变量)</xs:documentation>
                 </xs:annotation>
             </xs:element>
+            <xs:element name="sub" type="Sub" minOccurs="0"/>
             <xs:element name="input" type="Input" minOccurs="0"/>
         </xs:all>
         <xs:attribute name="description">
             <xs:annotation>
                 <xs:documentation>描述</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sub">
+            <xs:annotation>
+                <xs:documentation>所属子菜单</xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
@@ -60,6 +66,11 @@
         <xs:attribute name="size" type="ListSizeType">
             <xs:annotation>
                 <xs:documentation>页面大小,>=1</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sub" default="">
+            <xs:annotation>
+                <xs:documentation>所属子菜单</xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
@@ -97,6 +108,18 @@
                 <xs:attribute name="default">
                     <xs:annotation>
                         <xs:documentation>默认值(不能使用变量)</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Sub">
+        <xs:complexContent>
+            <xs:extension base="Component">
+                <xs:attribute name="name">
+                    <xs:annotation>
+                        <xs:documentation>变量名(默认为空,空也是正常的值)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
