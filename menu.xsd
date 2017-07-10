@@ -83,9 +83,14 @@
                         <xs:documentation>命令</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="exit" type="xs:boolean">
+                <xs:attribute name="mode" type="ButtonMode" default="exit">
                     <xs:annotation>
-                        <xs:documentation>执行命令后是否退出菜单</xs:documentation>
+                        <xs:documentation>
+                            模式,指执行按钮后的动作
+                            exit(默认): 退出,退出菜单
+                            stay: 停留,无操作
+                            refresh: 刷新,执行后不退出并且刷新变量与显示
+                        </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
@@ -147,6 +152,14 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="open"/>
             <xs:enumeration value="closed"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ButtonMode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="exit"/>
+            <xs:enumeration value="stay"/>
+            <xs:enumeration value="refresh"/>
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
