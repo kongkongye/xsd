@@ -85,6 +85,11 @@
             <xs:extension base="Base">
                 <xs:sequence maxOccurs="unbounded">
                     <xs:element name="line" type="Line"/>
+                    <xs:element name="import" type="Import">
+                        <xs:annotation>
+                            <xs:documentation>导入(菜单)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:sequence>
                 <xs:attribute name="size" type="ListSizeType">
                     <xs:annotation>
