@@ -13,6 +13,11 @@
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="list" type="List"/>
+                    <xs:element name="import" type="Import">
+                        <xs:annotation>
+                            <xs:documentation>导入(菜单)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
                 </xs:choice>
             </xs:sequence>
             <xs:attribute name="enable" type="xs:boolean" default="true">
@@ -89,6 +94,18 @@
                 <xs:attribute name="sub" default="">
                     <xs:annotation>
                         <xs:documentation>所属子菜单</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Import">
+        <xs:complexContent>
+            <xs:extension base="Base">
+                <xs:attribute name="path" use="required">
+                    <xs:annotation>
+                        <xs:documentation>导入的菜单路径(如template/list)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
