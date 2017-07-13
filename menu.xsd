@@ -5,7 +5,7 @@
            elementFormDefault="qualified">
     <xs:element name="menu">
         <xs:complexType>
-            <xs:sequence maxOccurs="unbounded">
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
                 <xs:choice>
                     <xs:element name="line" type="Line">
                         <xs:annotation>
