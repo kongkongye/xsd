@@ -120,9 +120,9 @@
     <xs:complexType name="Button">
         <xs:complexContent mixed="true">
             <xs:extension base="Component">
-                <xs:attribute name="cmd" use="required">
+                <xs:attribute name="cmd">
                     <xs:annotation>
-                        <xs:documentation>命令</xs:documentation>
+                        <xs:documentation>命令(默认为空,将不会执行命令)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="mode" type="ButtonMode" default="exit">
