@@ -146,6 +146,13 @@
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="color">
+                    <xs:annotation>
+                        <xs:documentation>
+                            颜色格式,如'#a#z'
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
