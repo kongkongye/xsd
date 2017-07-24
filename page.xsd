@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://xsd.kongkongye.com/page.xsd"
+           xmlns="http://xsd.kongkongye.com/page.xsd"
+           elementFormDefault="qualified">
+    <xs:element name="page">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:choice>
+                    <xs:element name="line" type="Line">
+                        <xs:annotation>
+                            <xs:documentation>行内容(可使用变量)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="list" type="List"/>
+                    <xs:element name="import" type="Import">
+                        <xs:annotation>
+                            <xs:documentation>导入(页面)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="br" type="Br"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="enable" type="xs:boolean" default="true">
+                <xs:annotation>
+                    <xs:documentation>是否启用,默认true</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="title">
+                <xs:annotation>
+                    <xs:documentation>标题(可使用变量)</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="context">
+                <xs:annotation>
+                    <xs:documentation>页面上下文名(可选)</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Base">
+        <xs:attribute name="con">
+            <xs:annotation>
+                <xs:documentation>条件</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="Component">
+        <xs:complexContent>
+            <xs:extension base="Base">
+                <xs:attribute name="style"/>
+                <xs:attribute name="width" type="xs:integer"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Line">
+        <xs:complexContent>
+            <xs:extension base="Base">
+                <xs:all>
+                    <xs:element name="text" type="Text" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>文本内容(可使用变量)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="button" type="Button" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>按钮内容(可使用变量)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="input" type="Input" minOccurs="0"/>
+                </xs:all>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="List">
+        <xs:complexContent>
+            <xs:extension base="Base">
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element name="line" type="Line"/>
+                    <xs:element name="import" type="Import">
+                        <xs:annotation>
+                            <xs:documentation>导入(页面)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="br" type="Br"/>
+                </xs:choice>
+                <xs:attribute name="size" type="ListSizeType">
+                    <xs:annotation>
+                        <xs:documentation>列表页面大小,>=1</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Import">
+        <xs:attribute name="path" use="required">
+            <xs:annotation>
+                <xs:documentation>导入的页面路径(如template/list)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="Br">
+        <xs:complexContent>
+            <xs:extension base="Base"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Text">
+        <xs:complexContent mixed="true">
+            <xs:extension base="Component"/>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Button">
+        <xs:complexContent mixed="true">
+            <xs:extension base="Component">
+                <xs:attribute name="cmd">
+                    <xs:annotation>
+                        <xs:documentation>命令(默认为空,将不会执行命令)</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="mode" type="ButtonMode" default="exit">
+                    <xs:annotation>
+                        <xs:documentation>
+                            模式,指执行按钮后的动作
+                            exit(默认): 退出,退出页面
+                            stay: 停留,无操作
+                            refresh: 刷新,执行后不退出并且刷新变量与显示
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Input">
+        <xs:complexContent>
+            <xs:extension base="Component">
+                <xs:attribute name="name" use="required">
+                    <xs:annotation>
+                        <xs:documentation>变量名</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="type" type="InputType" default="text">
+                    <xs:annotation>
+                        <xs:documentation>变量类型限制</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="default">
+                    <xs:annotation>
+                        <xs:documentation>默认值(可以使用部分变量)</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="description">
+                    <xs:annotation>
+                        <xs:documentation>描述(可以使用变量)</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!--简易类型-->
+    <xs:simpleType name="ListSizeType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ButtonMode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="exit"/>
+            <xs:enumeration value="stay"/>
+            <xs:enumeration value="refresh"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="InputType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="text"/>
+            <xs:enumeration value="number"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
