@@ -113,7 +113,13 @@
 
     <xs:complexType name="Text">
         <xs:complexContent mixed="true">
-            <xs:extension base="Component"/>
+            <xs:extension base="Component">
+                <xs:attribute name="align" type="TextAlign">
+                    <xs:annotation>
+                        <xs:documentation>对齐</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
@@ -185,6 +191,14 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="text"/>
             <xs:enumeration value="number"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="TextAlign">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="center"/>
+            <xs:enumeration value="right"/>
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
