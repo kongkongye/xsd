@@ -31,9 +31,19 @@
                     <xs:documentation>标题(可使用变量)</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="context">
+            <xs:attribute name="size" type="ListSizeType">
                 <xs:annotation>
-                    <xs:documentation>页面上下文名(可选)</xs:documentation>
+                    <xs:documentation>列表大小(可选)</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="pageContext">
+                <xs:annotation>
+                    <xs:documentation>页面上下文(可选),格式'插件'或'插件:key'</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="listContext">
+                <xs:annotation>
+                    <xs:documentation>列表上下文(可选),格式'插件'或'插件:key'</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
         </xs:complexType>
@@ -77,11 +87,6 @@
                     </xs:element>
                     <xs:element name="br" type="Br"/>
                 </xs:choice>
-                <xs:attribute name="size" type="ListSizeType">
-                    <xs:annotation>
-                        <xs:documentation>列表页面大小,>=1</xs:documentation>
-                    </xs:annotation>
-                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
