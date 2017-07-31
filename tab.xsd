@@ -19,6 +19,16 @@
                     <xs:documentation>是否启用,默认true</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
+            <xs:attribute name="pos" type="Pos" default="center">
+                <xs:annotation>
+                    <xs:documentation>位置</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="order" type="xs:integer" default="0">
+                <xs:annotation>
+                    <xs:documentation>排序,小的在上(前面)</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
         </xs:complexType>
     </xs:element>
 
@@ -34,4 +44,14 @@
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
+
+    <!--简易类型-->
+
+    <xs:simpleType name="Pos">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="center"/>
+            <xs:enumeration value="right"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

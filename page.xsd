@@ -69,7 +69,7 @@
     <xs:complexType name="Line">
         <xs:complexContent>
             <xs:extension base="Base">
-                <xs:group ref="Container"/>
+                <xs:group ref="Container" maxOccurs="unbounded"/>
                 <xs:attributeGroup ref="Container"/>
             </xs:extension>
         </xs:complexContent>
@@ -108,7 +108,7 @@
     <xs:complexType name="Container">
         <xs:complexContent>
             <xs:extension base="Component">
-                <xs:group ref="Container"/>
+                <xs:group ref="Container" maxOccurs="unbounded"/>
                 <xs:attributeGroup ref="Container"/>
             </xs:extension>
         </xs:complexContent>
@@ -178,6 +178,11 @@
                         <xs:documentation>描述(可以使用变量)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="fix-width" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>固定宽度(单位rem)</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -185,7 +190,7 @@
     <!--group-->
 
     <xs:group name="Container">
-        <xs:all>
+        <xs:choice>
             <xs:element name="text" type="Text" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>文本内容(可使用变量)</xs:documentation>
@@ -198,7 +203,7 @@
             </xs:element>
             <xs:element name="input" type="Input" minOccurs="0"/>
             <xs:element name="container" type="Container" minOccurs="0"/>
-        </xs:all>
+        </xs:choice>
     </xs:group>
 
     <xs:attributeGroup name="Container">
