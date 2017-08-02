@@ -144,10 +144,10 @@
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="color">
+                <xs:attribute name="server" type="xs:boolean" default="true">
                     <xs:annotation>
                         <xs:documentation>
-                            颜色格式,如'#a#z'
+                            是否是服务端命令,false表示客户端命令
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
