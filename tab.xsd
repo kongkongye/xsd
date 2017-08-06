@@ -43,6 +43,11 @@
                 <xs:documentation>页面路径</xs:documentation>
             </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="cmd">
+            <xs:annotation>
+                <xs:documentation>命令参数(可以使用common与player两种变量)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
     </xs:complexType>
 
     <!--简易类型-->
