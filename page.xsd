@@ -36,14 +36,9 @@
                     <xs:documentation>列表大小(可选)</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="pageContext">
+            <xs:attribute name="context">
                 <xs:annotation>
-                    <xs:documentation>页面上下文(可选),格式'插件'或'插件:key'</xs:documentation>
-                </xs:annotation>
-            </xs:attribute>
-            <xs:attribute name="listContext">
-                <xs:annotation>
-                    <xs:documentation>列表上下文(可选),格式'插件'或'插件:key'</xs:documentation>
+                    <xs:documentation>上下文(可选),格式'插件'或'插件:key'</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
         </xs:complexType>
