@@ -131,7 +131,11 @@
             <xs:extension base="Component">
                 <xs:attribute name="cmd">
                     <xs:annotation>
-                        <xs:documentation>命令(默认为空,将不会执行命令)</xs:documentation>
+                        <xs:documentation>
+                            命令(默认为空,将不会执行命令),
+                            服务端命令以'/'提示符开头,
+                            客户端命令以'$'提示符开头
+                        </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="mode" type="ButtonMode" default="stay">
@@ -141,13 +145,6 @@
                             back: 返回上一页
                             stay(默认): 停留,无操作
                             refresh: 刷新,执行成功后刷新页面
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="server" type="xs:boolean" default="true">
-                    <xs:annotation>
-                        <xs:documentation>
-                            是否是服务端命令,false表示客户端命令
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
