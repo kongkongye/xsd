@@ -225,6 +225,7 @@
         <xs:restriction base="xs:string">
             <xs:enumeration value="text"/>
             <xs:enumeration value="number"/>
+            <xs:enumeration value="password"/>
         </xs:restriction>
     </xs:simpleType>
 
