@@ -157,7 +157,7 @@
                 </xs:attribute>
                 <xs:attribute name="type" type="InputType" default="text">
                     <xs:annotation>
-                        <xs:documentation>变量类型限制</xs:documentation>
+                        <xs:documentation>变量类型限制(multi为true时此项无效果)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="default">
@@ -173,6 +173,11 @@
                 <xs:attribute name="fix-width" type="xs:int">
                     <xs:annotation>
                         <xs:documentation>固定宽度(单位rem)</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="multi" type="xs:boolean" default="false">
+                    <xs:annotation>
+                        <xs:documentation>是否多行</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
