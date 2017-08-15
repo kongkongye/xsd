@@ -21,14 +21,14 @@
                     <xs:element name="br" type="Br"/>
                 </xs:choice>
             </xs:sequence>
-            <xs:attribute name="enable" type="xs:boolean" default="true">
+            <xs:attribute name="name" use="required">
                 <xs:annotation>
-                    <xs:documentation>是否启用,默认true</xs:documentation>
+                    <xs:documentation>名称(不能使用变量)</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="title">
                 <xs:annotation>
-                    <xs:documentation>标题(可使用变量)</xs:documentation>
+                    <xs:documentation>标题(可使用变量)(未设置时使用名称作为标题)</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="size" type="ListSizeType">
