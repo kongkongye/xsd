@@ -21,14 +21,9 @@
                     <xs:element name="br" type="Br"/>
                 </xs:choice>
             </xs:sequence>
-            <xs:attribute name="name" use="required">
-                <xs:annotation>
-                    <xs:documentation>名称(不能使用变量)</xs:documentation>
-                </xs:annotation>
-            </xs:attribute>
             <xs:attribute name="title">
                 <xs:annotation>
-                    <xs:documentation>标题(可使用变量)(未设置时使用名称作为标题)</xs:documentation>
+                    <xs:documentation>标题(可使用变量)</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="size" type="ListSizeType">
@@ -39,6 +34,11 @@
             <xs:attribute name="context">
                 <xs:annotation>
                     <xs:documentation>上下文(可选),格式'插件'或'插件:key'</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="min-width">
+                <xs:annotation>
+                    <xs:documentation>最小宽度(默认不设置)</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
         </xs:complexType>
@@ -115,6 +115,11 @@
                 <xs:attribute name="align" type="TextAlign">
                     <xs:annotation>
                         <xs:documentation>文字对齐</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="br" type="xs:boolean" default="false">
+                    <xs:annotation>
+                        <xs:documentation>是否解析换行符</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
@@ -220,7 +225,7 @@
 
     <xs:simpleType name="ButtonMode">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="exit"/>
+            <xs:enumeration value="back"/>
             <xs:enumeration value="stay"/>
             <xs:enumeration value="refresh"/>
         </xs:restriction>
