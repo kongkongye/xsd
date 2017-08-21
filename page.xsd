@@ -222,6 +222,11 @@
                         <xs:documentation>是否多行</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="maxlength" type="xs:integer">
+                    <xs:annotation>
+                        <xs:documentation>最大字数限制,>=0,默认无限制</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
