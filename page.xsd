@@ -152,6 +152,7 @@
                             back: 返回上一页
                             stay(默认): 停留,无操作
                             refresh: 刷新页面
+                            refreshHole: 刷新整个页面内容
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
@@ -166,6 +167,20 @@
                     <xs:annotation>
                         <xs:documentation>
                             点击时提示的确认信息(可使用变量)
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="separator">
+                    <xs:annotation>
+                        <xs:documentation>
+                            命令分隔符(默认不分隔)
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            可选的输入变量列表(多个以空格分隔)
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
@@ -251,6 +266,11 @@
                         <xs:documentation>类型,值为选择变量名,格式'插件名-选择变量ID'</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="separator">
+                    <xs:annotation>
+                        <xs:documentation>分隔符(默认不分隔)(无分隔符时为单选,有分隔符时为多选)</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
                 <xs:attribute name="default">
                     <xs:annotation>
                         <xs:documentation>默认值(可以使用部分变量)</xs:documentation>
@@ -305,6 +325,7 @@
             <xs:enumeration value="back"/>
             <xs:enumeration value="stay"/>
             <xs:enumeration value="refresh"/>
+            <xs:enumeration value="refreshHole"/>
         </xs:restriction>
     </xs:simpleType>
 
