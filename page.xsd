@@ -136,10 +136,18 @@
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="ref">
+                    <xs:annotation>
+                        <xs:documentation>
+                            命令引用(默认无引用)(如果与cmd同时存在,将被cmd覆盖)
+                            格式'插件名 引用ID [变量名=变量值(注意转换特殊字符) ...]'
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
                 <xs:attribute name="cmd">
                     <xs:annotation>
                         <xs:documentation>
-                            命令(默认为空,将不会执行命令),
+                            命令(默认为空,将不会执行命令)(如果与ref同时存在,将覆盖ref的配置),
                             服务端命令以'/'提示符开头,
                             客户端命令以'$'提示符开头
                         </xs:documentation>
