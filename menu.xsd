@@ -58,6 +58,7 @@
         <xs:complexContent>
             <xs:extension base="Base">
                 <xs:all>
+                    <xs:element name="text" type="Text" minOccurs="0"/>
                     <xs:element name="button" type="Button" minOccurs="0">
                         <xs:annotation>
                             <xs:documentation>按钮内容(可使用变量)</xs:documentation>
@@ -113,6 +114,13 @@
                         <xs:documentation>导入的菜单路径(如template/list)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Text">
+        <xs:complexContent mixed="true">
+            <xs:extension base="Component">
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
