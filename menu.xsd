@@ -174,7 +174,7 @@
             <xs:extension base="Component">
                 <xs:attribute name="name">
                     <xs:annotation>
-                        <xs:documentation>变量名(默认为空,空也是正常的值)</xs:documentation>
+                        <xs:documentation>子菜单名(默认为空,空也是正常的值)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="default" type="SubDefaultType" default="closed">
