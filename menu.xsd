@@ -155,9 +155,9 @@
                         <xs:documentation>变量名</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="type">
+                <xs:attribute name="type" type="InputLimitType" default="string">
                     <xs:annotation>
-                        <xs:documentation>变量类型限制</xs:documentation>
+                        <xs:documentation>变量类型限制(默认string)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="default">
@@ -177,9 +177,9 @@
                         <xs:documentation>变量名(默认为空,空也是正常的值)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="default" type="SubDefaultType">
+                <xs:attribute name="default" type="SubDefaultType" default="closed">
                     <xs:annotation>
-                        <xs:documentation>默认是否打开</xs:documentation>
+                        <xs:documentation>默认是否打开(默认关闭)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="group">
@@ -210,6 +210,14 @@
             <xs:enumeration value="exit"/>
             <xs:enumeration value="stay"/>
             <xs:enumeration value="refresh"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="InputLimitType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="integer"/>
+            <xs:enumeration value="real"/>
+            <xs:enumeration value="string"/>
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
