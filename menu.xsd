@@ -32,7 +32,7 @@
             </xs:attribute>
             <xs:attribute name="context">
                 <xs:annotation>
-                    <xs:documentation>菜单上下文名(可选)</xs:documentation>
+                    <xs:documentation>菜单变量,格式'菜单变量名[:键]'</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
         </xs:complexType>
