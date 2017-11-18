@@ -210,7 +210,6 @@
             <xs:enumeration value="exit"/>
             <xs:enumeration value="stay"/>
             <xs:enumeration value="refresh"/>
-            <xs:enumeration value="refreshHole"/>
         </xs:restriction>
     </xs:simpleType>
 
