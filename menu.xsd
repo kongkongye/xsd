@@ -139,7 +139,8 @@
                             模式,指执行按钮后的动作
                             exit(默认): 退出,退出菜单
                             stay: 停留,无操作
-                            refresh: 刷新,执行后不退出并且刷新变量与显示
+                            refresh: 刷新变量
+                            refreshHole: 完整刷新变量
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
@@ -210,6 +211,7 @@
             <xs:enumeration value="exit"/>
             <xs:enumeration value="stay"/>
             <xs:enumeration value="refresh"/>
+            <xs:enumeration value="refreshHole"/>
         </xs:restriction>
     </xs:simpleType>
 
