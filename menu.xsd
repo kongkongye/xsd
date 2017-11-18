@@ -111,7 +111,7 @@
             <xs:extension base="Base">
                 <xs:attribute name="path" use="required">
                     <xs:annotation>
-                        <xs:documentation>导入的菜单路径(如template/list)</xs:documentation>
+                        <xs:documentation>导入的菜单路径,格式'[命名空间:]菜单路径'</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
