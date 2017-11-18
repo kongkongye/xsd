@@ -139,8 +139,7 @@
                             模式,指执行按钮后的动作
                             exit(默认): 退出,退出菜单
                             stay: 停留,无操作
-                            refresh: 刷新变量
-                            refreshHole: 完整刷新变量
+                            refresh: 刷新页面
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
