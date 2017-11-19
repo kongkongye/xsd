@@ -179,7 +179,7 @@
                 </xs:attribute>
                 <xs:attribute name="default" type="SubDefaultType" default="closed">
                     <xs:annotation>
-                        <xs:documentation>默认是否打开(默认关闭)</xs:documentation>
+                        <xs:documentation>初始状态(默认关闭)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="group">
