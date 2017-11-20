@@ -30,16 +30,21 @@
                     <xs:documentation>标题</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="context">
+            <xs:attribute name="pageContext">
                 <xs:annotation>
-                    <xs:documentation>菜单变量,格式'菜单变量名[:键]'</xs:documentation>
+                    <xs:documentation>页面上下文,格式'页面变量处理器名[:页面变量处理器值]'</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="listContext">
+                <xs:annotation>
+                    <xs:documentation>列表上下文,格式'列表变量处理器名[:列表变量处理器值]'</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
         </xs:complexType>
     </xs:element>
 
     <xs:complexType name="Base">
-        <xs:attribute name="con">
+        <xs:attribute name="condition">
             <xs:annotation>
                 <xs:documentation>条件</xs:documentation>
             </xs:annotation>
