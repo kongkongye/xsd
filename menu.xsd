@@ -32,12 +32,12 @@
             </xs:attribute>
             <xs:attribute name="pageContext">
                 <xs:annotation>
-                    <xs:documentation>页面上下文,格式'页面变量处理器名[:页面变量处理器值]'</xs:documentation>
+                    <xs:documentation>页面上下文,格式'页面变量处理器名[:页面变量处理器数据]'</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="listContext">
                 <xs:annotation>
-                    <xs:documentation>列表上下文,格式'列表变量处理器名[:列表变量处理器值]'</xs:documentation>
+                    <xs:documentation>列表上下文,格式'列表变量处理器名[:列表变量处理器数据]'</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
         </xs:complexType>
@@ -179,7 +179,7 @@
             <xs:extension base="Component">
                 <xs:attribute name="name">
                     <xs:annotation>
-                        <xs:documentation>子菜单名(默认为空,空也是正常的值)</xs:documentation>
+                        <xs:documentation>子菜单名(默认为空,空也是正常的值)(不能包含@)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="default" type="SubDefaultType" default="closed">
