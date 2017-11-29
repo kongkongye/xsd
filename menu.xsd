@@ -5,41 +5,45 @@
            elementFormDefault="qualified">
     <xs:element name="menu">
         <xs:complexType>
-            <xs:sequence minOccurs="0" maxOccurs="unbounded">
-                <xs:choice>
-                    <xs:element name="line" type="Line">
+            <xs:complexContent>
+                <xs:extension base="Base">
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:choice>
+                            <xs:element name="line" type="Line">
+                                <xs:annotation>
+                                    <xs:documentation>行内容</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="list" type="List"/>
+                            <xs:element name="import" type="Import">
+                                <xs:annotation>
+                                    <xs:documentation>导入(菜单)</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                        </xs:choice>
+                    </xs:sequence>
+                    <xs:attribute name="enable" type="xs:boolean" default="true">
                         <xs:annotation>
-                            <xs:documentation>行内容</xs:documentation>
+                            <xs:documentation>是否启用,默认true</xs:documentation>
                         </xs:annotation>
-                    </xs:element>
-                    <xs:element name="list" type="List"/>
-                    <xs:element name="import" type="Import">
+                    </xs:attribute>
+                    <xs:attribute name="title">
                         <xs:annotation>
-                            <xs:documentation>导入(菜单)</xs:documentation>
+                            <xs:documentation>标题</xs:documentation>
                         </xs:annotation>
-                    </xs:element>
-                </xs:choice>
-            </xs:sequence>
-            <xs:attribute name="enable" type="xs:boolean" default="true">
-                <xs:annotation>
-                    <xs:documentation>是否启用,默认true</xs:documentation>
-                </xs:annotation>
-            </xs:attribute>
-            <xs:attribute name="title">
-                <xs:annotation>
-                    <xs:documentation>标题</xs:documentation>
-                </xs:annotation>
-            </xs:attribute>
-            <xs:attribute name="pageContext">
-                <xs:annotation>
-                    <xs:documentation>页面上下文,格式'页面变量处理器名[:页面变量处理器数据]'</xs:documentation>
-                </xs:annotation>
-            </xs:attribute>
-            <xs:attribute name="listContext">
-                <xs:annotation>
-                    <xs:documentation>列表上下文,格式'列表变量处理器名[:列表变量处理器数据]'</xs:documentation>
-                </xs:annotation>
-            </xs:attribute>
+                    </xs:attribute>
+                    <xs:attribute name="pageContext">
+                        <xs:annotation>
+                            <xs:documentation>页面上下文,格式'页面变量处理器名[:页面变量处理器数据]'</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="listContext">
+                        <xs:annotation>
+                            <xs:documentation>列表上下文,格式'列表变量处理器名[:列表变量处理器数据]'</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                </xs:extension>
+            </xs:complexContent>
         </xs:complexType>
     </xs:element>
 
