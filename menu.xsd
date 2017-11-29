@@ -142,12 +142,12 @@
                         <xs:documentation>命令(默认为空,将不会执行命令)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="mode" type="ButtonMode" default="exit">
+                <xs:attribute name="mode" type="ButtonMode" default="stay">
                     <xs:annotation>
                         <xs:documentation>
                             模式,指执行按钮后的动作
-                            exit(默认): 退出,退出菜单
-                            stay: 停留,无操作
+                            exit: 退出,退出菜单
+                            stay(默认): 停留,无操作
                             refresh: 刷新页面
                         </xs:documentation>
                     </xs:annotation>
