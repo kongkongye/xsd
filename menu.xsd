@@ -147,6 +147,7 @@
                         <xs:documentation>
                             模式,指执行按钮后的动作
                             exit: 退出,退出菜单
+                            back: 返回,返回上级菜单
                             stay(默认): 停留,无操作
                             refresh: 刷新页面
                         </xs:documentation>
@@ -217,6 +218,7 @@
     <xs:simpleType name="ButtonMode">
         <xs:restriction base="xs:string">
             <xs:enumeration value="exit"/>
+            <xs:enumeration value="back"/>
             <xs:enumeration value="stay"/>
             <xs:enumeration value="refresh"/>
         </xs:restriction>
