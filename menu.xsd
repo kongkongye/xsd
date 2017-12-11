@@ -11,35 +11,35 @@
                         <xs:choice>
                             <xs:element name="line" type="Line">
                                 <xs:annotation>
-                                    <xs:documentation>行内容</xs:documentation>
+                                    <xs:documentation>line content</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
                             <xs:element name="list" type="List"/>
                             <xs:element name="import" type="Import">
                                 <xs:annotation>
-                                    <xs:documentation>导入(菜单)</xs:documentation>
+                                    <xs:documentation>import(menu)</xs:documentation>
                                 </xs:annotation>
                             </xs:element>
                         </xs:choice>
                     </xs:sequence>
                     <xs:attribute name="enable" type="xs:boolean" default="true">
                         <xs:annotation>
-                            <xs:documentation>是否启用,默认true</xs:documentation>
+                            <xs:documentation>enabled, default is true</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                     <xs:attribute name="title">
                         <xs:annotation>
-                            <xs:documentation>标题</xs:documentation>
+                            <xs:documentation>title</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                     <xs:attribute name="pageContext">
                         <xs:annotation>
-                            <xs:documentation>页面上下文,格式'页面变量处理器名[:页面变量处理器数据]'</xs:documentation>
+                            <xs:documentation>page context, format: 'page param handler name[:page param handler data]'</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                     <xs:attribute name="listContext">
                         <xs:annotation>
-                            <xs:documentation>列表上下文,格式'列表变量处理器名[:列表变量处理器数据]'</xs:documentation>
+                            <xs:documentation>list context, format: 'list param handler name[:list param handler data]'</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:extension>
@@ -50,7 +50,7 @@
     <xs:complexType name="Base">
         <xs:attribute name="condition">
             <xs:annotation>
-                <xs:documentation>条件</xs:documentation>
+                <xs:documentation>condition</xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
@@ -70,7 +70,7 @@
                     <xs:element name="text" type="Text" minOccurs="0"/>
                     <xs:element name="button" type="Button" minOccurs="0">
                         <xs:annotation>
-                            <xs:documentation>按钮内容</xs:documentation>
+                            <xs:documentation>button content</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                     <xs:element name="sub" type="Sub" minOccurs="0"/>
@@ -78,12 +78,12 @@
                 </xs:all>
                 <xs:attribute name="description">
                     <xs:annotation>
-                        <xs:documentation>描述(多行以\n分隔)</xs:documentation>
+                        <xs:documentation>description(multiple lines is separated by \n)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="sub">
                     <xs:annotation>
-                        <xs:documentation>所属子菜单</xs:documentation>
+                        <xs:documentation>belong, no belong by default</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
@@ -97,18 +97,18 @@
                     <xs:element name="line" type="Line"/>
                     <xs:element name="import" type="Import">
                         <xs:annotation>
-                            <xs:documentation>导入(菜单)</xs:documentation>
+                            <xs:documentation>import(menu)</xs:documentation>
                         </xs:annotation>
                     </xs:element>
                 </xs:choice>
                 <xs:attribute name="size" type="ListSizeType">
                     <xs:annotation>
-                        <xs:documentation>页面大小,>=1</xs:documentation>
+                        <xs:documentation>page size,>=1</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="sub" default="">
                     <xs:annotation>
-                        <xs:documentation>所属子菜单</xs:documentation>
+                        <xs:documentation>belong</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
@@ -120,7 +120,7 @@
             <xs:extension base="Base">
                 <xs:attribute name="path" use="required">
                     <xs:annotation>
-                        <xs:documentation>导入的菜单路径,格式'[命名空间:]菜单路径'</xs:documentation>
+                        <xs:documentation>imported menu path,format: '[namespace:]path'</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
@@ -139,17 +139,17 @@
             <xs:extension base="Component">
                 <xs:attribute name="cmd">
                     <xs:annotation>
-                        <xs:documentation>命令(默认为空,将不会执行命令)</xs:documentation>
+                        <xs:documentation>command(default is empty, will not execute command)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="mode" type="ButtonMode" default="stay">
                     <xs:annotation>
                         <xs:documentation>
-                            模式,指执行按钮后的动作
-                            exit: 退出,退出菜单
-                            back: 返回,返回上级菜单
-                            stay(默认): 停留,无操作
-                            refresh: 刷新页面
+                            the action after executing, default is stay
+                            exit: exit menu
+                            back: back menu
+                            stay(default): no action
+                            refresh: refresh page
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
@@ -162,17 +162,17 @@
             <xs:extension base="Component">
                 <xs:attribute name="name" use="required">
                     <xs:annotation>
-                        <xs:documentation>变量名</xs:documentation>
+                        <xs:documentation>param name</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="type" type="InputLimitType" default="string">
                     <xs:annotation>
-                        <xs:documentation>变量类型限制(默认string)</xs:documentation>
+                        <xs:documentation>param type limit(default is string)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="default">
                     <xs:annotation>
-                        <xs:documentation>默认值</xs:documentation>
+                        <xs:documentation>default value</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
@@ -184,24 +184,23 @@
             <xs:extension base="Component">
                 <xs:attribute name="name">
                     <xs:annotation>
-                        <xs:documentation>子菜单名(默认为空,空也是正常的值)(不能包含@)</xs:documentation>
+                        <xs:documentation>default is empty,empty is a normal value too(can not contain @)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="default" type="SubDefaultType" default="closed">
                     <xs:annotation>
-                        <xs:documentation>初始状态(默认关闭)</xs:documentation>
+                        <xs:documentation>init status(default is closed)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="group">
                     <xs:annotation>
-                        <xs:documentation>所属的子菜单组(默认无组)</xs:documentation>
+                        <xs:documentation>sub menu group(no group by default)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
-    <!--简易类型-->
     <xs:simpleType name="ListSizeType">
         <xs:restriction base="xs:integer">
             <xs:minInclusive value="1"/>
