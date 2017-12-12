@@ -27,7 +27,7 @@
                             <xs:documentation>enabled, default is true</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
-                    <xs:attribute name="title">
+                    <xs:attribute name="title" use="required">
                         <xs:annotation>
                             <xs:documentation>title</xs:documentation>
                         </xs:annotation>
