@@ -108,42 +108,32 @@
                 <xs:documentation>条件</xs:documentation>
             </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="hover">
+            <xs:annotation>
+                <xs:documentation>
+                    悬浮提示(多行以换行符(\n)分隔)
+                    (可使用变量)(可使用颜色字符$)
+                    优先于'hoverRef'属性配置
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hoverRef">
+            <xs:annotation>
+                <xs:documentation>悬浮提示引用的ID</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
     </xs:complexType>
 
     <xs:complexType name="Component">
         <xs:complexContent>
-            <xs:extension base="Base">
-                <xs:attribute name="hover">
-                    <xs:annotation>
-                        <xs:documentation>
-                            悬浮提示(多行以换行符(\n)分隔)
-                            (可使用变量)(可使用颜色字符$)
-                            优先于'hoverRef'属性配置
-                        </xs:documentation>
-                    </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="hoverRef">
-                    <xs:annotation>
-                        <xs:documentation>悬浮提示引用的ID</xs:documentation>
-                    </xs:annotation>
-                </xs:attribute>
-            </xs:extension>
+            <xs:extension base="Base"/>
         </xs:complexContent>
     </xs:complexType>
 
     <xs:complexType name="Line" mixed="true">
         <xs:complexContent>
             <xs:extension base="Base">
-                <xs:sequence minOccurs="0" maxOccurs="unbounded">
-                    <xs:element name="text" type="Text" minOccurs="0"/>
-                    <xs:element name="button" type="Button" minOccurs="0">
-                        <xs:annotation>
-                            <xs:documentation>按钮内容(不会转换颜色格式字符)</xs:documentation>
-                        </xs:annotation>
-                    </xs:element>
-                    <xs:element name="sub" type="Sub" minOccurs="0"/>
-                    <xs:element name="input" type="Input" minOccurs="0"/>
-                </xs:sequence>
+                <xs:group ref="component" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:attribute name="sub">
                     <xs:annotation>
                         <xs:documentation>所属子菜单,默认无</xs:documentation>
@@ -191,6 +181,14 @@
                         <xs:documentation>导入菜单路径,格式: '仓库ID:命名空间:路径'</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Div">
+        <xs:complexContent>
+            <xs:extension base="Component">
+                <xs:group ref="component" minOccurs="0" maxOccurs="unbounded"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -424,4 +422,18 @@
             </xs:enumeration>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:group name="component">
+        <xs:sequence>
+            <xs:element name="div" type="Div" minOccurs="0"/>
+            <xs:element name="text" type="Text" minOccurs="0"/>
+            <xs:element name="button" type="Button" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>按钮内容(不会转换颜色格式字符)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="sub" type="Sub" minOccurs="0"/>
+            <xs:element name="input" type="Input" minOccurs="0"/>
+        </xs:sequence>
+    </xs:group>
 </xs:schema>
