@@ -141,12 +141,12 @@
                 </xs:attribute>
                 <xs:attribute name="align" type="LineAlign" default="left">
                     <xs:annotation>
-                        <xs:documentation>对齐,默认向左对齐</xs:documentation>
+                        <xs:documentation>对齐方式,默认向左对齐</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="alignCenterType" type="LineAlignCenterType" default="spaceBoth">
                     <xs:annotation>
-                        <xs:documentation>对齐类型(只有对齐属性为居中(center)时才有效)</xs:documentation>
+                        <xs:documentation>居中对齐类型(只有对齐属性为居中(center)时才有效)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
             </xs:extension>
@@ -332,22 +332,22 @@
 
     <xs:complexType name="Hover">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="line" type="xs:string">
+            <xs:element name="hoverLine" type="xs:string">
                 <xs:annotation>
-                    <xs:documentation>悬浮提示的行内容(可使用变量)(可使用颜色字符$)</xs:documentation>
+                    <xs:documentation>悬浮文字的行内容(可使用变量,可使用颜色字符$)</xs:documentation>
                 </xs:annotation>
             </xs:element>
         </xs:sequence>
         <xs:attribute name="id" use="required">
             <xs:annotation>
-                <xs:documentation>悬浮提示的引用ID</xs:documentation>
+                <xs:documentation>悬浮文字的引用ID</xs:documentation>
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
 
     <xs:complexType name="Map">
         <xs:sequence minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="value" type="MapValue">
+            <xs:element name="mapValue" type="MapValue">
                 <xs:annotation>
                     <xs:documentation>映射</xs:documentation>
                 </xs:annotation>
