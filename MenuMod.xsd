@@ -105,7 +105,7 @@
         </xs:attribute>
         <xs:attribute name="condition">
             <xs:annotation>
-                <xs:documentation>条件</xs:documentation>
+                <xs:documentation>条件,格式'条件名:条件值'</xs:documentation>
             </xs:annotation>
         </xs:attribute>
         <xs:attribute name="hover">
@@ -361,13 +361,6 @@
     </xs:complexType>
 
     <xs:complexType name="MapValue" mixed="true">
-        <xs:sequence minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="value" type="MapValue">
-                <xs:annotation>
-                    <xs:documentation>映射(内容可以使用颜色字符$)</xs:documentation>
-                </xs:annotation>
-            </xs:element>
-        </xs:sequence>
         <xs:attribute name="key" type="xs:string">
             <xs:annotation>
                 <xs:documentation>
