@@ -149,6 +149,11 @@
                         <xs:documentation>居中对齐类型(只有对齐属性为居中(center)时才有效)</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="separate" type="xs:boolean" default="false">
+                    <xs:annotation>
+                        <xs:documentation>行分隔,true时会与前面隔一行(如果是第一行或前面已经有空行则无效果)(默认false)</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
