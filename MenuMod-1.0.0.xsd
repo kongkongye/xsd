@@ -33,7 +33,7 @@
                         <xs:documentation>(引用的)悬浮提示配置</xs:documentation>
                     </xs:annotation>
                     <xs:complexType>
-                        <xs:sequence>
+                        <xs:sequence minOccurs="0" maxOccurs="unbounded">
                             <xs:element name="hover" type="Hover">
                                 <xs:annotation>
                                     <xs:documentation>悬浮提示</xs:documentation>
