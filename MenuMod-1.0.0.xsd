@@ -94,7 +94,7 @@
     </xs:element>
 
     <xs:complexType name="Base">
-        <xs:attribute name="conditionSide" type="ConditionSide" default="server">
+        <xs:attribute name="conditionSide" type="ConditionSide" default="local">
             <xs:annotation>
                 <xs:documentation>
                     条件所属的端
