@@ -144,7 +144,7 @@
                         <xs:documentation>对齐方式,默认向左对齐</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="alignCenterType" type="LineAlignCenterType" default="spaceBoth">
+                <xs:attribute name="alignCenter" type="LineAlignCenter" default="spaceBoth">
                     <xs:annotation>
                         <xs:documentation>居中对齐类型(只有对齐属性为居中(center)时才有效)</xs:documentation>
                     </xs:annotation>
@@ -442,7 +442,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="LineAlignCenterType">
+    <xs:simpleType name="LineAlignCenter">
         <xs:restriction base="xs:string">
             <xs:enumeration value="spaceBoth">
                 <xs:annotation>
