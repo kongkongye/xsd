@@ -139,9 +139,9 @@
                         <xs:documentation>所属子菜单,默认无</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="align" type="LineAlign" default="left">
+                <xs:attribute name="align" type="LineAlign" default="center">
                     <xs:annotation>
-                        <xs:documentation>对齐方式,默认向左对齐</xs:documentation>
+                        <xs:documentation>对齐方式,默认居中对齐</xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
                 <xs:attribute name="alignCenter" type="LineAlignCenter" default="spaceBoth">
