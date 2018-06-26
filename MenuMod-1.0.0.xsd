@@ -412,6 +412,7 @@
 
     <xs:simpleType name="ButtonMode">
         <xs:restriction base="xs:string">
+            <xs:enumeration value="close"/>
             <xs:enumeration value="exit"/>
             <xs:enumeration value="back"/>
             <xs:enumeration value="stay"/>
