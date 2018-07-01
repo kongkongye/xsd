@@ -314,7 +314,7 @@
                     <xs:annotation>
                         <xs:documentation>
                             变量,格式'物品处理器名[:物品处理器数据]'
-                            可以包含命令变量,只会在开始的时候解析一次
+                            物品处理器数据可以包含变量
                         </xs:documentation>
                     </xs:annotation>
                 </xs:attribute>
